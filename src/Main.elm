@@ -3,7 +3,6 @@ module Main exposing (main)
 import Formatter exposing (..)
 import Browser
 import Browser.Navigation
-import Debug
 import Url exposing (Url)
 import Task exposing (..)
 import Time exposing (..)
@@ -50,7 +49,7 @@ init _ url key =
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
-    case Debug.log "msg" msg of
+    case msg of
         AdjustedTimeZone newZone ->
           (
           { model | zone = newZone }

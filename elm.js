@@ -5645,15 +5645,13 @@ var elm$url$Url$fromString = function (str) {
 };
 var elm$browser$Browser$Navigation$load = _Browser_load;
 var elm$browser$Browser$Navigation$replaceUrl = _Browser_replaceUrl;
-var elm$core$Debug$log = _Debug_log;
 var elm$core$Platform$Cmd$batch = _Platform_batch;
 var elm$core$Platform$Cmd$none = elm$core$Platform$Cmd$batch(_List_Nil);
 var author$project$Main$update = F2(
 	function (msg, model) {
-		var _n0 = A2(elm$core$Debug$log, 'msg', msg);
-		switch (_n0.$) {
+		switch (msg.$) {
 			case 'AdjustedTimeZone':
-				var newZone = _n0.a;
+				var newZone = msg.a;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
@@ -5666,7 +5664,7 @@ var author$project$Main$update = F2(
 						{temperature: author$project$Main$mockTemperature}),
 					elm$core$Platform$Cmd$none);
 			case 'LinkClicked':
-				var urlRequest = _n0.a;
+				var urlRequest = msg.a;
 				if (urlRequest.$ === 'Internal') {
 					var url = urlRequest.a;
 					return _Utils_Tuple2(
@@ -5679,7 +5677,7 @@ var author$project$Main$update = F2(
 						elm$browser$Browser$Navigation$load(href));
 				}
 			default:
-				var url = _n0.a;
+				var url = msg.a;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
